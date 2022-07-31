@@ -25,18 +25,21 @@ t_node  *nodeinit(int num)
 void insert_node(t_stack **a, int num)
 {
     t_node *newnode = nodeinit(num);
-    t_node *oldtop;
+    t_node *oldbottom;
 
     if((*a)->top == NULL)
     {
         (*a)->top = newnode;
+        newnode->next = newnode;
+        newnode->prev = newnode;
     }
     else
     {
-        oldtop = (*a)->top;
-        oldtop->prev = newnode;
-        newnode->next =  oldtop;
-        (*a)->top = newnode;
+        oldbottom = (*a)->top->prev;
+        oldbottom->next = newnode;
+        newnode->prev = oldbottom;
+        newnode->next = (*a)->top;
+        (*a)->top->prev = newnode;
     }
     ((*a)->numofdata)++;
     return;

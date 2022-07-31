@@ -13,9 +13,9 @@ void dub_check(t_stack *a, int val)
     {
         if (curr->data == val)
             ft_print_error();
-        if (curr->next == NULL)
-            return;
         curr = curr->next;
+        if (curr == a->top)
+            return;
     }
 }
 
@@ -51,10 +51,12 @@ int main(int argc, char **argv)
     stack_init(&a, &b);
     parse_av(argv, a);
     curr = a->top;
-    while (curr)
+    while (1)
     {
         printf("%dst data = %d\n",i, curr->data);
         curr = curr->next;
+        if (curr == a->top)
+            return(0);
         i++;
     }
 }
