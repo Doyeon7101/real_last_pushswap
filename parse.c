@@ -39,24 +39,3 @@ void parse_av(char **argv, t_stack *a)
     }
     return;
 }
-
-//parse_av에 str 넣고 node 끝까지 insert하고 확인하기
-int main(int argc, char **argv)
-{
-    t_stack *a;
-    t_stack *b;
-    t_node *curr;
-    int i = 0;
-
-    stack_init(&a, &b);
-    parse_av(argv, a);
-    curr = a->top;
-    while (1)
-    {
-        printf("%dst data = %d\n",i, curr->data);
-        curr = curr->next;
-        if (curr == a->top)
-            return(0);
-        i++;
-    }
-}

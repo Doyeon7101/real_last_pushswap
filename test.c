@@ -13,7 +13,7 @@ int main(int argc, char **argv)
     return(0) ;
 }
 **/
-
+/**
 int main(int argc, char **argv)
 {
     t_stack *a;
@@ -34,4 +34,26 @@ int main(int argc, char **argv)
         argv++;
     }
 
+}
+**/
+int printf_jj(void)
+{
+    printf("jj\n");
+    return (1);
+}
+int printf_kk(void)
+{
+    printf("kk\n");
+    return (1);
+}
+void test(void)
+{
+    if (ft_strcmp("sa","ssdfljk") && printf_kk())
+        printf("welcome\n");
+    if (ft_strcmp("ss", "ss") && printf_jj())
+        printf("hihihihihi~~");
+}
+int main()
+{
+    test();
 }

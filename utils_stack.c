@@ -36,12 +36,36 @@ void insert_node(t_stack **a, int num)
     else
     {
         oldbottom = (*a)->top->prev;
+
         oldbottom->next = newnode;
         newnode->prev = oldbottom;
-        newnode->next = (*a)->top;
         (*a)->top->prev = newnode;
+        newnode->next = (*a)->top;
+        
+        // (*a)->top->prev->next = newnode;
     }
     ((*a)->numofdata)++;
     return;
 }
 
+int pop_node(t_stack **stack)
+{
+    t_node *delnode;
+    int deldata;
+
+    delnode = (*stack)->top;
+    deldata = delnode->data;
+    if ((*stack)->top == (*stack)->top->next)
+        (*stack)->top = NULL;
+    else
+    {
+        (*stack)->top->prev->next = (*stack)->top->next;
+        (*stack)->top->next->prev= (*stack)->top->prev;
+        (*stack)->top = (*stack)->top->next;
+        delnode->next = delnode;
+        delnode->prev = delnode;
+    }
+    free(delnode);
+    delnode = NULL;
+    return(deldata);
+}

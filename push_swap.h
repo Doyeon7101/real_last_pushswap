@@ -17,7 +17,6 @@ typedef struct s_node
 typedef struct s_stack
 {
 	t_node *top;
-	t_node *bottom;
 	int numofdata;
 } t_stack;
 
@@ -30,11 +29,17 @@ typedef struct s_info
 //stack
 void stack_init(t_stack **a, t_stack **b);
 void insert_node(t_stack **a, int num);
+int pop_node(t_stack **stack);
 
 //parse
 void parse_av(char **argv, t_stack *a);
 
 //operaction
+void op(char *str, t_stack *gvn, t_stack *rcv);
+int swap(t_stack *stack);
+int push(t_stack *gvn, t_stack *rcv);
+int rotate(t_stack **stack);
+int r_rotate(t_stack **stack);
 
 //algo
 bool sort(t_stack **a, t_stack **b);
@@ -51,5 +56,6 @@ void	ft_putstr_fd(char *s, int fd);
 int	ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 size_t ft_strlen(const char *str);
+bool ft_strcmp(const char *s1, const char *s2);
 
 #endif
