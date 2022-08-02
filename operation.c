@@ -25,6 +25,7 @@ int rotate(t_stack **stack)
     (*stack)->top = (*stack)->top->next;
     return(1);
 }
+
 int r_rotate(t_stack **stack)
 {
     if ((*stack)->numofdata == 1)
@@ -33,7 +34,7 @@ int r_rotate(t_stack **stack)
     return(1);
 }
 
-void op(char *str, t_stack *gvn, t_stack *rcv)
+int op(char *str, t_stack *gvn, t_stack *rcv)
 {
     t_node *curr;
     if (ft_strcmp("sa",str) &&  swap(gvn))
@@ -58,4 +59,5 @@ void op(char *str, t_stack *gvn, t_stack *rcv)
         ft_putstr_fd("rrb\n", STDOUT_FILENO);
     if (ft_strcmp("rrr",str) &&  r_rotate(&gvn) && r_rotate(&rcv))
         ft_putstr_fd("rrr\n", STDOUT_FILENO);
+    return(1);
 }

@@ -35,11 +35,15 @@ int pop_node(t_stack **stack);
 void parse_av(char **argv, t_stack *a);
 
 //operaction
-void op(char *str, t_stack *gvn, t_stack *rcv);
+int op(char *str, t_stack *gvn, t_stack *rcv);
 int swap(t_stack *stack);
 int push(t_stack *gvn, t_stack *rcv);
 int rotate(t_stack **stack);
 int r_rotate(t_stack **stack);
+
+//sort
+void sort_3(t_stack *stack);
+
 
 //algo
 bool sort(t_stack **a, t_stack **b);
@@ -49,6 +53,10 @@ bool b_to_a(t_stack **stack);
 
 //uitl
 void	ft_print_error(void);
+void find_min_max(t_stack *stack, int *max, int *min);
+int return_max(t_stack *stack);
+int return_min(t_stack *stack);
+bool is_ascend(t_stack *stack);
 
 
 //libft

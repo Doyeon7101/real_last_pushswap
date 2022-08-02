@@ -5,16 +5,22 @@ int main(int argc, char **argv)
 {
     t_stack *a;
     t_stack *b;
+    t_info *info;
     t_node *curr;
     int i = 0;
+    int max;
+    int min;
 
     stack_init(&a, &b);
     parse_av(argv, a);
-    op("rra", a, NULL);
+    // find_min_max(a, &max, &min);
+    
+    sort_3(a);
+    
     curr = a->top;
     while (1)
     {
-        printf("%dst a's data = %d\n",i, curr->data);
+        printf("[%d] : %d\n",i, curr->data);
         curr = curr->next;
         if (curr == a->top)
             break;
