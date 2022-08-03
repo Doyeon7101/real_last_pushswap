@@ -13,10 +13,7 @@ int main(int argc, char **argv)
 
     stack_init(&a, &b);
     parse_av(argv, a);
-    // find_min_max(a, &max, &min);
-    
-    sort_3(a);
-    
+    sort_2_to_5(a,b);
     curr = a->top;
     while (1)
     {

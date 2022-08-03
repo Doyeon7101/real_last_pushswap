@@ -78,10 +78,11 @@ bool is_ascend(t_stack *stack)
     curr = stack->top;
     while (1)
     {
+        printf("curr data : %d, next data : %d\n", curr->data, curr->next->data);
         if (curr->data > curr->next->data)
             return(false);
         curr = curr->next;
-        if(curr == stack->top)
+        if(curr->next == stack->top)
             return(true);
     }
 }

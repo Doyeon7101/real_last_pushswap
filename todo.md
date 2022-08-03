@@ -9,6 +9,7 @@
 - [ ] b to a
 <br><br>
 # complete
+- [x] ascend 함수 수정
 - [x] 원형 쌍방향 연결리스트 구현
 - [x] 기본 operation 구현
 - [x] 3개 이하 인자 처리<br><br>

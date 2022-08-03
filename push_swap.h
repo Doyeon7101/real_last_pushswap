@@ -43,6 +43,8 @@ int r_rotate(t_stack **stack);
 
 //sort
 void sort_3(t_stack *stack);
+void sort_2_to_5(t_stack *a, t_stack *b);
+void sort_4_to_5(t_stack *a, t_stack *b);
 
 
 //algo

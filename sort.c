@@ -8,8 +8,7 @@ void sort_3(t_stack *stack)
     curr = stack->top;
     max = return_max(stack);
     min = return_min(stack);
-    // find_min_max(stack, &max, &min);
-    if(is_ascend(stack))
+    if(is_ascend(stack) == true)
         return;
     if (curr->data < max && curr->data > min) //중간값
     {
@@ -28,38 +27,65 @@ void sort_3(t_stack *stack)
     if(op("sa", stack, NULL) && op("ra", stack, NULL))
         return;
 }
+
 /**
+가장 작은 숫자 두개만 top으로 올리고
+pb 해준다음에
+남은 3개는 3 num rotate gg
+<가장 작은 숫자 맨 앞으로  올리기>
+가장 작은 data가 있는 곳의 인덱스가 
+0 이면 그냥 리턴
+top에 더 가까우면 ra
+bottom 에 더 가까우면 rra
+가장 작은 숫자가 top에 위치하지 않을때까지 ra keep
+**/
+
+void sort_minnum_to_top(t_stack *stack)
+{
+    int min;
+    t_node *curr;
+	int cnt;
+    
+	cnt = 0;
+    curr = stack->top;
+    while (curr->data != min)
+	{
+	    curr = curr->next;
+	  	cnt++;
+	}
+	if (cnt >= stack->numofdata / 2)
+    {
+    while (stack->top->data =! min)
+      op("rra", stack, NULL);
+    }
+    else
+  {
+    while (stack->top->data =! min)
+      op("ra", stack, NULL);
+  }
+  return;
+}
 void sort_4_to_5(t_stack *a, t_stack *b)
 {
     int max;
     int min;
-    t_node *curr;
-    int cnt;
+    int origin_numofdata;
 
-    cnt = 0;
-    max = return_max(a);
-    min = return_min(b);
-    curr = a->top;
-    while (a->numofdata > 3)
+    origin_numofdata = a->numofdata;
+    // 가장 작은 숫자 2개 top으로 올리기 
+    while (a->numofdata > 3) 
     {
-        if (curr->data == max || curr->data == min)
-        {
-            op("pb", a, b);
-            cnt++;
-        }
-        else
-            op("ra", a, NULL);
-        curr = a->top;
-    }
+        sort_minnum_to_top(a);
         op("pb", a, b);
+        printf("here");
+    }
     sort_3(a);
+    while (a->numofdata != origin_numofdata)
+        op("pa", b, a);
 }
-**/
 
-void sort_1_to_5(t_stack *a, t_stack *b)
+void sort_2_to_5(t_stack *a, t_stack *b)
 {
-    if (a->numofdata == 1)
-        return;
     if (a->numofdata == 2)
     {
         if (a->top->data > a->top->next->data)
@@ -67,6 +93,7 @@ void sort_1_to_5(t_stack *a, t_stack *b)
     }
     if (a->numofdata == 3)
         sort_3(a);
-    // if (a->numofdata > 3 && a->numofdata <= 5)
-    //     sort_4_to_5(a, b);
+    if (a->numofdata == 4 || a->numofdata ==5)
+        sort_4_to_5(a, b);
+    return;
 }
