@@ -28,7 +28,8 @@ typedef struct s_info
 
 //stack
 void stack_init(t_stack **a, t_stack **b);
-void insert_node(t_stack **a, int num);
+void insert_node_to_bottom(t_stack **a, int num);
+void insert_node_to_top(t_stack **a, int num);
 int pop_node(t_stack **stack);
 
 //parse

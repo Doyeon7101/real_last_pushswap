@@ -23,8 +23,8 @@ int main(int argc, char **argv)
             break;
         i++;
     }
-    i = 0;
     /**
+    i = 0;
     curr = b->top;
     while (1)
     {

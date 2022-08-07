@@ -32,7 +32,7 @@ void parse_av(char **argv, t_stack *a)
         {
             val = ft_atoi(*temp);
             dub_check(a, val);
-            insert_node(&a, val);
+            insert_node_to_bottom(&a, val);
             temp++;
         }
         argv++;

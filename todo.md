@@ -1,14 +1,16 @@
 # **push_swap**<br>
  top으로부터 차례로 오름차순 정렬(=top이 가장 작은 숫자가 오도록)
 # ing
-- [ ] 4~5개 인자 처리
-- [ ] find_min_max 함수 수정
-# TODO
 - [ ] set pivot 구현 
+
+# TODO
 - [ ] a to b
 - [ ] b to a
+- [ ] find_min_max 함수 수정
 <br><br>
 # complete
+- [x] 4~5개 인자 처리
+- [x] sort_minnum_to_top, sort_4_to_5 디버깅
 - [x] ascend 함수 수정
 - [x] 원형 쌍방향 연결리스트 구현
 - [x] 기본 operation 구현

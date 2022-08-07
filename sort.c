@@ -23,6 +23,7 @@ void sort_3(t_stack *stack)
         curr = curr->next;
         if(curr->data < max && curr->data > min && op("sa", stack, NULL))
             return;
+        return;
     }
     if(op("sa", stack, NULL) && op("ra", stack, NULL))
         return;
@@ -48,21 +49,27 @@ void sort_minnum_to_top(t_stack *stack)
     
 	cnt = 0;
     curr = stack->top;
+    min = return_min(stack);
+    if (curr->data == min)
+        return;
     while (curr->data != min)
 	{
 	    curr = curr->next;
 	  	cnt++;
-	}
-	if (cnt >= stack->numofdata / 2)
+	} //cnt : 2 
+	if (cnt >= (stack->numofdata) / 2)
     {
-    while (stack->top->data =! min)
-      op("rra", stack, NULL);
+        while (stack->top->data != min)
+        {
+          op("rra", stack, NULL);
+          cnt --;
+        }
     }
     else
-  {
-    while (stack->top->data =! min)
-      op("ra", stack, NULL);
-  }
+    {
+        while (stack->top->data != min)
+            op("ra", stack, NULL);
+    }
   return;
 }
 void sort_4_to_5(t_stack *a, t_stack *b)
@@ -70,6 +77,7 @@ void sort_4_to_5(t_stack *a, t_stack *b)
     int max;
     int min;
     int origin_numofdata;
+    int tmp;
 
     origin_numofdata = a->numofdata;
     // 가장 작은 숫자 2개 top으로 올리기 
@@ -77,10 +85,9 @@ void sort_4_to_5(t_stack *a, t_stack *b)
     {
         sort_minnum_to_top(a);
         op("pb", a, b);
-        printf("here");
     }
     sort_3(a);
-    while (a->numofdata != origin_numofdata)
+    while (a->numofdata < origin_numofdata)
         op("pa", b, a);
 }
 
