@@ -11,13 +11,14 @@ int main(int argc, char **argv)
     int max;
     int min;
 
+    info = (t_info *)malloc(sizeof(t_info));
     stack_init(&a, &b);
     parse_av(argv, a);
     sort_2_to_5(a,b);
     curr = a->top;
     while (1)
     {
-        printf("[%d] : %d\n",i, curr->data);
+        printf("[%d] : origin : %d, data : %d\n",i, curr->origin, curr->data);
         curr = curr->next;
         if (curr == a->top)
             break;

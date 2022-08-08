@@ -14,7 +14,8 @@ int swap(t_stack *stack)
 
 int push(t_stack *gvn, t_stack *rcv)
 {
-    insert_node_to_top(&rcv, pop_node(&gvn));
+    int origin = gvn->top->origin;
+    insert_node_to_top(&rcv, origin, pop_node(&gvn));
     return(1);
 }
 

@@ -11,20 +11,21 @@ void    stack_init(t_stack **a, t_stack **b)
     return ;
 }
 
-t_node  *nodeinit(int num)
+t_node  *nodeinit(int num, int data)
 {
     t_node *newnode;
 
     newnode = (t_node*)malloc(sizeof(t_node));
-    newnode->data = num;
+    newnode->origin = num;
+    newnode->data = data;
     newnode->next = NULL;
     newnode->prev = NULL;
     return(newnode);
 }
 
-void insert_node_to_bottom(t_stack **a, int num)
+void insert_node_to_bottom(t_stack **a, int num, int data)
 {
-    t_node *newnode = nodeinit(num);
+    t_node *newnode = nodeinit(num, data);
     t_node *oldbottom;
 
     if((*a)->top == NULL)
@@ -49,9 +50,9 @@ void insert_node_to_bottom(t_stack **a, int num)
 }
 
 
-void insert_node_to_top(t_stack **a, int num)
+void insert_node_to_top(t_stack **a, int num, int data)
 {
-    t_node *newnode = nodeinit(num);
+    t_node *newnode = nodeinit(num, data);
     t_node *oldtop;
 
     if((*a)->top == NULL)

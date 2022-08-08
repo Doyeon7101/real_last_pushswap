@@ -22,14 +22,14 @@ typedef struct s_stack
 
 typedef struct s_info
 {
-	int pivot_a;
-	int pivot_b;
+	int p_small;
+	int p_big;
 } t_info;
 
 //stack
 void stack_init(t_stack **a, t_stack **b);
-void insert_node_to_bottom(t_stack **a, int num);
-void insert_node_to_top(t_stack **a, int num);
+void insert_node_to_bottom(t_stack **a, int num, int data);
+void insert_node_to_top(t_stack **a, int num, int data);
 int pop_node(t_stack **stack);
 
 //parse
@@ -49,7 +49,7 @@ void sort_4_to_5(t_stack *a, t_stack *b);
 
 
 //algo
-bool sort(t_stack **a, t_stack **b);
+void sort(t_stack *a, t_stack *b);
 bool set_pivot(t_stack **stack, int **pivot);
 bool a_to_b(t_stack **stack);
 bool b_to_a(t_stack **stack);
