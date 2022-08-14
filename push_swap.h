@@ -49,9 +49,9 @@ void sort_4_to_5(t_stack *a, t_stack *b);
 
 
 //algo
-void sort(t_stack *a, t_stack *b);
-bool set_pivot(t_stack **stack, int **pivot);
-bool a_to_b(t_stack **stack);
+void sort(t_stack *a, t_stack *b, t_info *info);
+void set_pivot(t_stack *stack, t_info *info);
+void a_to_b(t_stack *a, t_stack *b, t_info *info);
 bool b_to_a(t_stack **stack);
 
 //uitl

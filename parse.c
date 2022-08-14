@@ -5,7 +5,7 @@ int dub_check_and_add_data(t_stack *a, int val)
     t_node *curr;
     int data;
 
-    data = 0;
+    data = 1;
     if (a->numofdata  < 1)
         return(data);
     curr = a->top;
