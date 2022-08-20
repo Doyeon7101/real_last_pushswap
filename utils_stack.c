@@ -10,7 +10,8 @@ void    stack_init(t_stack **a, t_stack **b, t_info **info)
     (*b)->top = NULL;
     (*b)->numofdata = 0;
     (*info)->cnt = 0;
-
+    (*info)->i = 0;
+    (*info)->j = 0;
 
     return ;
 }

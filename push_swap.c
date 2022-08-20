@@ -14,6 +14,7 @@ int main(int argc, char **argv)
     parse_av(argv, a);
     sort(a,b,info);
     curr = a->top;
+    printf("==========STACK A==========\n");
     while (1)
     {
         printf("[%d] : origin : %d, data : %d\n",i, curr->origin, curr->data);
@@ -24,7 +25,7 @@ int main(int argc, char **argv)
     }
     i = 0;
     curr = b->top;
-    printf("print b\n");
+    printf("==========STACK B==========\n");
     while (1)
     {
         printf("[%d] : origin : %d, data : %d\n",i, curr->origin, curr->data);

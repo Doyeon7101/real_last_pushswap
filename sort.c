@@ -81,7 +81,7 @@ void sort_4_to_5(t_stack *a, t_stack *b)
 
     origin_numofdata = a->numofdata;
     // 가장 작은 숫자 2개 top으로 올리기 
-    if(!is_ascend)
+    if(is_ascend(a))
         return;
     while (a->numofdata > 3) 
     {
@@ -93,16 +93,16 @@ void sort_4_to_5(t_stack *a, t_stack *b)
         op("pa", b, a);
 }
 
-void sort_2_to_5(t_stack *a, t_stack *b)
+void sort_2_to_5(t_stack *a, t_stack *b, int len)
 {
-    if (a->numofdata == 2)
+    if (len == 2)
     {
         if (a->top->data > a->top->next->data)
             op("sa", a, NULL);
     }
-    if (a->numofdata == 3)
+    if (len == 3)
         sort_3(a);
-    if (a->numofdata == 4 || a->numofdata ==5)
+    if (len == 4 || len == 5)
         sort_4_to_5(a, b);
     return;
 }

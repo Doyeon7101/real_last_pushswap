@@ -22,10 +22,9 @@ typedef struct s_stack
 
 typedef struct s_info
 {
-	int p_small;
-	int p_big;
-	int max;
 	int cnt;
+	int i;
+	int j;
 } t_info;
 
 //stack
@@ -46,12 +45,12 @@ int r_rotate(t_stack **stack);
 
 //sort
 void sort_3(t_stack *stack);
-void sort_2_to_5(t_stack *a, t_stack *b);
 void sort_4_to_5(t_stack *a, t_stack *b);
+void sort_2_to_5(t_stack *a, t_stack *b, int len);
 
 
 //algo
-void a_to_b(t_stack *a, t_stack *b, int pb_b, int pb_s, t_info *info);
+void a_to_b(t_stack *a, t_stack *b, int max, int min, t_info *info);
 void sort(t_stack *a,t_stack *b, t_info *info);
 // void set_pivot(t_stack *stack, t_info *info);
 // void a_to_b(t_stack *a, t_stack *b, t_info *info);
