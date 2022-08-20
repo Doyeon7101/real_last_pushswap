@@ -1,13 +1,17 @@
 #include "push_swap.h"
 
-void    stack_init(t_stack **a, t_stack **b)
+void    stack_init(t_stack **a, t_stack **b, t_info **info)
 {
     *a = (t_stack*)malloc(sizeof(t_stack));
     *b = (t_stack*)malloc(sizeof(t_stack));
+    *info = (t_info*)malloc(sizeof(t_info));
     (*a)->top = NULL;
     (*a)->numofdata = 0;
     (*b)->top = NULL;
     (*b)->numofdata = 0;
+    (*info)->cnt = 0;
+
+
     return ;
 }
 

@@ -10,8 +10,7 @@ int main(int argc, char **argv)
     int max;
     int min;
 
-    info = (t_info *)malloc(sizeof(t_info));
-    stack_init(&a, &b);
+    stack_init(&a, &b, &info);
     parse_av(argv, a);
     sort(a,b,info);
     curr = a->top;

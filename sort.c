@@ -81,6 +81,8 @@ void sort_4_to_5(t_stack *a, t_stack *b)
 
     origin_numofdata = a->numofdata;
     // 가장 작은 숫자 2개 top으로 올리기 
+    if(!is_ascend)
+        return;
     while (a->numofdata > 3) 
     {
         sort_minnum_to_top(a);

@@ -24,10 +24,12 @@ typedef struct s_info
 {
 	int p_small;
 	int p_big;
+	int max;
+	int cnt;
 } t_info;
 
 //stack
-void stack_init(t_stack **a, t_stack **b);
+void    stack_init(t_stack **a, t_stack **b, t_info **info);
 void insert_node_to_bottom(t_stack **a, int num, int data);
 void insert_node_to_top(t_stack **a, int num, int data);
 int pop_node(t_stack **stack);
@@ -49,10 +51,11 @@ void sort_4_to_5(t_stack *a, t_stack *b);
 
 
 //algo
-void sort(t_stack *a, t_stack *b, t_info *info);
-void set_pivot(t_stack *stack, t_info *info);
-void a_to_b(t_stack *a, t_stack *b, t_info *info);
-bool b_to_a(t_stack **stack);
+void a_to_b(t_stack *a, t_stack *b, int pb_b, int pb_s, t_info *info);
+void sort(t_stack *a,t_stack *b, t_info *info);
+// void set_pivot(t_stack *stack, t_info *info);
+// void a_to_b(t_stack *a, t_stack *b, t_info *info);
+// void b_to_a(t_stack *a, t_stack *b, t_info *info);
 
 //uitl
 void	ft_print_error(void);
