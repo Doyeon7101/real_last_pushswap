@@ -28,10 +28,10 @@ int main(int argc, char **argv)
     printf("==========STACK B==========\n");
     while (1)
     {
-        printf("[%d] : origin : %d, data : %d\n",i, curr->origin, curr->data);
-        curr = curr->next;
         if (curr == b->top)
             return(0);
+        printf("[%d] : origin : %d, data : %d\n",i, curr->origin, curr->data);
+        curr = curr->next;
         i++;
     }
 }

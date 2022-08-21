@@ -48,20 +48,21 @@ void b_to_a(t_stack *a, t_stack *b, int max, int min, t_info *info)
     printf("numofdata : %d, pivot big : %d, pivot small : %d, max : %d, min: %d\n", max, p_b, p_s, max, min);
     while(info->i < max - min + 1)
     {
-        if (b->top->data <= max && b->top->data > p_b) //Ⅰ
+        if (b->top->data <= max && b->top->data >= p_b) //Ⅰ
             op("pa", b, a);
-        else if (b->top->data <= p_b && b->top->data > p_s) //Ⅱ
+        else if (b->top->data < p_b && b->top->data >= p_s) //Ⅱ
         {
             op("pa", b, a);
             op("ra", a, NULL);
         }
-        else if (b->top->data <= p_s && b->top->data >= min) //Ⅲ
+        else if (b->top->data < p_s && b->top->data >= min) //Ⅲ
             op("rb", b, NULL);
         (info->i)++;
     }
-    rewind_stack(b, NULL, "rrb", (max-min+1)-(p_b-p_s)*2);
+    rewind_stack(a,b,"rrr", p_b-p_s);
+    // rewind_stack(b, NULL, "rrb", (max-min+1)-(p_b-p_s)*2);
     a_to_b(a, b, max, p_b, info); //Ⅰ
-    rewind_stack(a, NULL, "rra", p_b-p_s);
+    // rewind_stack(a, NULL, "rra", p_b-p_s);
     a_to_b(a,b, p_b,p_s, info);
     rewind_stack(a, b, "pa", (max-min+1) - (p_b-p_s)*2);
     a_to_b(a,b,p_s,min,info);
