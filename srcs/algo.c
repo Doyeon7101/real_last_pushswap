@@ -43,7 +43,6 @@ void b_to_a(t_stack *a, t_stack *b, int max, int min, t_info *info)
         sort_2_to_5_btoa(a, b, max - min+1);
         return;
     }
-    //devide
     set_pivot(max-min , max, &p_b, &p_s);
     printf("numofdata : %d, pivot big : %d, pivot small : %d, max : %d, min: %d\n", max, p_b, p_s, max, min);
     while(info->i < max - min + 1)
@@ -60,9 +59,7 @@ void b_to_a(t_stack *a, t_stack *b, int max, int min, t_info *info)
         (info->i)++;
     }
     rewind_stack(a,b,"rrr", p_b-p_s);
-    // rewind_stack(b, NULL, "rrb", (max-min+1)-(p_b-p_s)*2);
     a_to_b(a, b, max, p_b, info); //Ⅰ
-    // rewind_stack(a, NULL, "rra", p_b-p_s);
     a_to_b(a,b, p_b,p_s, info);
     rewind_stack(a, b, "pa", (max-min+1) - (p_b-p_s)*2);
     a_to_b(a,b,p_s,min,info);
@@ -76,15 +73,12 @@ void a_to_b(t_stack *a, t_stack *b, int max, int min, t_info *info)
 
     info-> i = 0;
     printf("max : %d, min : %d\n", max, min);
-    //sort
     if (max - min +1 <= 5)
     {
         sort_2_to_5_atob(a, b, max - min +1);
         return;
     }
-    //divide
     set_pivot(max - min + 1, max, &p_b, &p_s);
-    printf("numofdata : %d, pivot big : %d, pivot small : %d, max : %d, min: %d\n", max, p_b, p_s, max, min);
     while(info->i < max - min+1)
     {
         if (a->top->data <= max && a->top->data > p_b) //Ⅰ
@@ -98,11 +92,8 @@ void a_to_b(t_stack *a, t_stack *b, int max, int min, t_info *info)
             op("pb", a, b);
         (info->i)++;
     }
-    printf("=====\n<data len>\n[1]: %d, [2]: %d, [3]: %d\n=====\n",max - p_b, p_b - p_s, p_s - min + 1);
-    //2스택(==1스택) 개수 ? : info->cnt
     while ((info->cnt)++ < (p_b - p_s))
         op("rrr", a, b);
-    //recursive
     a_to_b(a, b, max, p_b+1, info); //1
     b_to_a(a, b, p_b, p_s+1, info); //2
     b_to_a(a, b, p_s, min, info); //3

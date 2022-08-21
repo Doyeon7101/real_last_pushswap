@@ -87,7 +87,3 @@ bool is_ascend(t_stack *stack, int cnt)
         --cnt;
     }
 }
-
-
-// void set_pivot(t_stack *a, t_stack *b, t_info *info)
-
