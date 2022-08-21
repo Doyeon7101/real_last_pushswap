@@ -23,8 +23,10 @@ typedef struct s_stack
 typedef struct s_info
 {
 	int cnt;
-	int i;
+	int cnt_pa;
+	int cnt_rb;
 	int j;
+	int i;
 } t_info;
 
 //stack
@@ -45,7 +47,7 @@ int r_rotate(t_stack **stack);
 
 //sort
 void sort_3(t_stack *stack);
-void sort_4_to_5(t_stack *a, t_stack *b);
+void sort_4_to_5(t_stack *a, t_stack *b, int len);
 void sort_2_to_5(t_stack *a, t_stack *b, int len);
 
 
@@ -60,8 +62,8 @@ void sort(t_stack *a,t_stack *b, t_info *info);
 void	ft_print_error(void);
 void find_min_max(t_stack *stack, int *max, int *min);
 int return_max(t_stack *stack);
+bool is_ascend(t_stack *stack, int cnt);
 int return_min(t_stack *stack);
-bool is_ascend(t_stack *stack);
 
 
 //libft

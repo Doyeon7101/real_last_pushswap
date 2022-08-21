@@ -71,12 +71,12 @@ int return_min(t_stack *stack)
     }
 }
 
-bool is_ascend(t_stack *stack)
+bool is_ascend(t_stack *stack, int cnt)
 {
     t_node *curr;
 
     curr = stack->top;
-    while (1)
+    while (cnt > 1)
     {
         // printf("curr data : %d, next data : %d\n", curr->data, curr->next->data);
         if (curr->data > curr->next->data)
@@ -84,6 +84,7 @@ bool is_ascend(t_stack *stack)
         curr = curr->next;
         if(curr->next == stack->top)
             return(true);
+        --cnt;
     }
 }
 

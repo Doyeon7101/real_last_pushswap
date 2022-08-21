@@ -1,4 +1,5 @@
 #include "push_swap.h"
+/**
 void sort_3(t_stack *stack)
 {
     int max;
@@ -8,7 +9,7 @@ void sort_3(t_stack *stack)
     curr = stack->top;
     max = return_max(stack);
     min = return_min(stack);
-    if(is_ascend(stack) == true)
+    if(is_ascend(stack, 3) == true)
         return;
     if (curr->data < max && curr->data > min) //중간값
     {
@@ -28,6 +29,7 @@ void sort_3(t_stack *stack)
     if(op("sa", stack, NULL) && op("ra", stack, NULL))
         return;
 }
+**/
 
 /**
 가장 작은 숫자 두개만 top으로 올리고
@@ -72,7 +74,7 @@ void sort_minnum_to_top(t_stack *stack)
     }
   return;
 }
-void sort_4_to_5(t_stack *a, t_stack *b)
+void sort_4_to_5(t_stack *a, t_stack *b, int len)
 {
     int max;
     int min;
@@ -81,7 +83,7 @@ void sort_4_to_5(t_stack *a, t_stack *b)
 
     origin_numofdata = a->numofdata;
     // 가장 작은 숫자 2개 top으로 올리기 
-    if(is_ascend(a))
+    if(is_ascend(a, len))
         return;
     while (a->numofdata > 3) 
     {
@@ -95,14 +97,21 @@ void sort_4_to_5(t_stack *a, t_stack *b)
 
 void sort_2_to_5(t_stack *a, t_stack *b, int len)
 {
-    if (len == 2)
+    if (len == 2 || len == 3)
     {
         if (a->top->data > a->top->next->data)
             op("sa", a, NULL);
+        if (len == 3 && !is_ascend(a,len))
+        {
+            op("ra", a, NULL);
+            op("sa", a, NULL);
+            op("rra", a, NULL);
+            if (a->top->data > a->top->data)
+                op("sa", a, NULL);
+        }
+            // sort_3(a);
     }
-    if (len == 3)
-        sort_3(a);
     if (len == 4 || len == 5)
-        sort_4_to_5(a, b);
+        sort_4_to_5(a, b, len);
     return;
 }
