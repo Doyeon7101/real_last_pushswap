@@ -7,9 +7,9 @@ int main(int argc, char **argv)
     t_info *info;
     t_node *curr;
     int i = 0;
-    int max;
-    int min;
 
+    if (argc < 3)
+        ft_print_error();
     stack_init(&a, &b, &info);
     parse_av(argv, a);
     // sort(a,b,info);

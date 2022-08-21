@@ -82,8 +82,8 @@ bool is_ascend(t_stack *stack, int cnt)
         if (curr->data > curr->next->data)
             return(false);
         curr = curr->next;
-        if(curr->next == stack->top)
-            return(true);
+        // if(curr->next == stack->top)
         --cnt;
     }
+    return(true);
 }

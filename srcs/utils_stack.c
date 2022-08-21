@@ -60,7 +60,6 @@ void insert_node_to_bottom(t_stack **a, int num, int data)
 void insert_node_to_top(t_stack **a, int num, int data)
 {
     t_node *newnode = nodeinit(num, data);
-    t_node *oldtop;
 
     if((*a)->top == NULL)
     {

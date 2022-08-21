@@ -1,33 +1,31 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Werror - Wextra
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
-LIB_DIR = ./libft/
 SRC_DIR = ./srcs/
 
-S_SRCS =  algo.c \
-		operation.c \
-		oth.c \
-		parse.c \
-		push_swap.c \
-		sort.c \
-		utils_stack.c
-O_SRCS = $(S_SRCS:.c=.o)
+SRCS =  ./srcs/algo.c \
+		./srcs/operation.c \
+		./srcs/oth.c \
+		./srcs/parse.c \
+		./srcs/push_swap.c \
+		./srcs/sort.c \
+		./srcs/utils_stack.c \
+		./srcs/ft_split.c \
+		./srcs/libft.c \
+		./srcs/libft2.c 
 
-S_LIBFT = ft_split.c \
-		libft.c \
-		libft2.c 
-O_LIBFT = $(S_LIBFT:.c=.o)
+OBJS = $(SRCS:.c=.o)
+
 
 all: $(NAME)
 
-$(NAME): $(O_SRCS) $(O_LIBFT)
+$(NAME): $(SRCS)
 		$(CC) $(CFLAGS) $^ -o $@
-
 clean:
-	$(RM) $(O_LIBFT) $(O_SRCS)
+		$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

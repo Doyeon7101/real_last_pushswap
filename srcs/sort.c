@@ -76,10 +76,7 @@ void sort_minnum_to_top(t_stack *stack)
 }
 void sort_4_to_5(t_stack *a, t_stack *b, int len)
 {
-    int max;
-    int min;
     int origin_numofdata;
-    int tmp;
 
     origin_numofdata = a->numofdata;
     // 가장 작은 숫자 2개 top으로 올리기 
@@ -106,7 +103,7 @@ void sort_2_to_5_btoa(t_stack *a, t_stack *b, int len)
             op("rb", b, NULL);
             op("sb", b, NULL);
             op("rrb", b, NULL);
-            if (a->top->data > a->top->data)
+            if (a->top->data < a->top->next->data)
                 op("sb", b, NULL);
         }
             // sort_3(a);
@@ -126,7 +123,7 @@ void sort_2_to_5_atob(t_stack *a, t_stack *b, int len)
             op("ra", a, NULL);
             op("sa", a, NULL);
             op("rra", a, NULL);
-            if (a->top->data > a->top->data)
+            if (a->top->data > a->top->next->data)
                 op("sa", a, NULL);
         }
             // sort_3(a);

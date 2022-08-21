@@ -37,7 +37,6 @@ int r_rotate(t_stack **stack)
 
 int op(char *str, t_stack *gvn, t_stack *rcv)
 {
-    t_node *curr;
     if (ft_strcmp("sa",str) &&  swap(gvn))
         ft_putstr_fd("sa\n", STDOUT_FILENO);
     if (ft_strcmp("sb",str) &&  swap(gvn))
