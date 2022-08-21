@@ -1,5 +1,6 @@
 #include "push_swap.h"
 /**
+**/
 void sort_3(t_stack *stack)
 {
     int max;
@@ -29,7 +30,6 @@ void sort_3(t_stack *stack)
     if(op("sa", stack, NULL) && op("ra", stack, NULL))
         return;
 }
-**/
 
 /**
 가장 작은 숫자 두개만 top으로 올리고
@@ -95,7 +95,27 @@ void sort_4_to_5(t_stack *a, t_stack *b, int len)
         op("pa", b, a);
 }
 
-void sort_2_to_5(t_stack *a, t_stack *b, int len)
+void sort_2_to_5_btoa(t_stack *a, t_stack *b, int len)
+{
+    if (len == 2 || len == 3)
+    {
+        if (a->top->data > a->top->next->data)
+            op("sb", b, NULL);
+        if (len == 3 && !is_ascend(a,len))
+        {
+            op("rb", b, NULL);
+            op("sb", b, NULL);
+            op("rrb", b, NULL);
+            if (a->top->data > a->top->data)
+                op("sb", b, NULL);
+        }
+            // sort_3(a);
+    }
+    // if (len == 4 || len == 5)
+    //     sort_4_to_5(a, b, len);
+    return;
+}
+void sort_2_to_5_atob(t_stack *a, t_stack *b, int len)
 {
     if (len == 2 || len == 3)
     {

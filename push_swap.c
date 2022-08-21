@@ -12,7 +12,8 @@ int main(int argc, char **argv)
 
     stack_init(&a, &b, &info);
     parse_av(argv, a);
-    sort(a,b,info);
+    // sort(a,b,info);
+    sort_2_to_5_atob(a, b, 5);
     curr = a->top;
     printf("==========STACK A==========\n");
     while (1)

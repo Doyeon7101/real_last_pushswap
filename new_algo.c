@@ -33,14 +33,14 @@ void b_to_a(t_stack *a, t_stack *b, int max, int min, t_info *info)
     info->i = 0;
     info->cnt = 0;
     //sort
-    if (max - min +1 <= 5)
+    if (max - min +1 <= 3)
     {
         while ((info->cnt) < (max - min)+1 )
         {
             op("pa", b, a);
             (info->cnt)++;
         }
-        sort_2_to_5(a, b, max - min+1);
+        sort_2_to_5_btoa(a, b, max - min+1);
         return;
     }
     //devide
@@ -79,7 +79,7 @@ void a_to_b(t_stack *a, t_stack *b, int max, int min, t_info *info)
     //sort
     if (max - min +1 <= 5)
     {
-        sort_2_to_5(a, b, max - min +1);
+        sort_2_to_5_atob(a, b, max - min +1);
         return;
     }
     //divide

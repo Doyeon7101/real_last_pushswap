@@ -48,7 +48,8 @@ int r_rotate(t_stack **stack);
 //sort
 void sort_3(t_stack *stack);
 void sort_4_to_5(t_stack *a, t_stack *b, int len);
-void sort_2_to_5(t_stack *a, t_stack *b, int len);
+void sort_2_to_5_btoa(t_stack *a, t_stack *b, int len);
+void sort_2_to_5_atob(t_stack *a, t_stack *b, int len);
 
 
 //algo

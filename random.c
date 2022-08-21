@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_COUNT         16
+#define MAX_COUNT       500 
 
 int main()
 {
